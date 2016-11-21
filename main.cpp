@@ -4,4 +4,5 @@
 int main()
 {
 	draw();
+	print_snake();
 }
