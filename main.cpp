@@ -3,6 +3,7 @@
 #include"function.h"
 int main()
 {
-	draw();
+	framwork();
 	print_snake();
+	draw();
 }
