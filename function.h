@@ -2,40 +2,48 @@
 #include"components.h"
 #include"struct.h"
 #include<stdlib.h>
+#include<time.h>
 void print_snake();
 void eat_food();
 void direction(char drx);
 void set_grade();
 void print_snake()
 {
-	int i, j;
+	int i, j, iTemp,iX,iY;
+	srand((unsigned)time(NULL));
 	i = rand() % 41 + 1;
 	j = rand() % 26 + 1;
 	fram[i][j] = 35;
-	if (i == 1)
+	iX = i;
+	iY = j;
+	if (iX == 1)
 	{
-		for (; i < i + 5; i++)
-			fram[i][j] = 35;
+		iTemp = iX + 5;
+		for (; iX < iTemp; iX++)
+			fram[iX][iY] = '#';
 	}
-	else if (j == 1 && i != 1)
+	else if (iY == 1 && i != 1)
 	{
-		for (; j < j + 5; j--)
-			fram[i][j] = 35;
+		iTemp = iY + 5;
+		for (; iY < iTemp; iY--)
+			fram[iX][iY] = '#';
 	}
-	else if (i == 23)
+	else if (iX == 23)
 	{
-		for (; i > i - 5; i--)
-			fram[i][j] = 35;
+		iTemp = iX - 5;
+		for (; iX > iTemp; iX--)
+			fram[iX][iY] = '#';
 	}
-	else if (j == 38)
+	else if (iY == 38)
 	{
-		for (; j > j - 5; j--)
-			fram[i][j] = 35;
+		iTemp = iY - 5;
+		for (; iY > iTemp; iY--)
+			fram[iX][iY] = '#';
 	}
 	else
 	{
-		for (; i > i - 5; i--)
-			fram[i][j] = 35;
+		for (; iX > iX - 5; iX--)
+			fram[iX][iY] = '#';
 	}
 }
 void draw()
