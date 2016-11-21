@@ -9,41 +9,40 @@ void direction(char drx);
 void set_grade();
 void print_snake()
 {
-	int i, j, iTemp,iX,iY;
+	int i, j, iTemp;
 	srand((unsigned)time(NULL));
-	i = rand() % 41 + 1;
-	j = rand() % 26 + 1;
-	fram[i][j] = 35;
-	iX = i;
-	iY = j;
-	if (iX == 1)
+	i = rand() % 40 + 1;
+	j = rand() % 25 + 1;
+	fram[i][j] = '#';
+	if (i == 1)
 	{
-		iTemp = iX + 5;
-		for (; iX < iTemp; iX++)
-			fram[iX][iY] = '#';
+		iTemp = i + 5;
+		for (; i < iTemp; i++)
+			fram[i][j] = '#';
 	}
-	else if (iY == 1 && i != 1)
+	else if (j < 4 && i != 1)
 	{
-		iTemp = iY + 5;
-		for (; iY < iTemp; iY--)
-			fram[iX][iY] = '#';
+		iTemp = j + 5;
+		for (; j < iTemp; j++)
+			fram[i][j] = '#';
 	}
-	else if (iX == 23)
+	else if (i >19)
 	{
-		iTemp = iX - 5;
-		for (; iX > iTemp; iX--)
-			fram[iX][iY] = '#';
+		iTemp = i - 5;
+		for (; i > iTemp; i--)
+			fram[i][j] = '#';
 	}
-	else if (iY == 38)
+	else if (j >34)
 	{
-		iTemp = iY - 5;
-		for (; iY > iTemp; iY--)
-			fram[iX][iY] = '#';
+		iTemp = j - 5;
+		for (; j > iTemp; j--)
+			fram[i][j] = '#';
 	}
 	else
 	{
-		for (; iX > iX - 5; iX--)
-			fram[iX][iY] = '#';
+		iTemp = j + 5;
+		for (; j < iTemp; j++)
+			fram[i][j] = '#';
 	}
 }
 void draw()
