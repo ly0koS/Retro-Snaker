@@ -11,8 +11,8 @@ void print_snake()
 {
 	int i, j, iTemp;
 	srand((unsigned)time(NULL));
-	i = rand() % 40 + 1;
-	j = rand() % 25 + 1;
+	i = rand() % 38 + 2;
+	j = rand() % 23 + 2;
 	fram[i][j] = '#';
 	if (i == 1)
 	{
@@ -44,6 +44,7 @@ void print_snake()
 		for (; j < iTemp; j++)
 			fram[i][j] = '#';
 	}
+	
 }
 void draw()
 {
